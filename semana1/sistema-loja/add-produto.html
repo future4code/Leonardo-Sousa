@@ -3,25 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <title>Mercearia do Léo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="index.html">Home</a>
-    <h1>Formulário para adicionar produtos</h1>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="controle-estoque.html">Controle de Estoque</a>
+        <a href="add-produto.html">Adicionar produtos</a>
+        <a href="funcionarios.html">Funcionários</a>
+    </div>
+    <div class="logo">
+        <h1>Mercearía do Léo</h1>
+    </div>
+    <h3>Formulário para adicionar produtos</h3>
     <form action="#">
-        <label for="prod">Imagem do produto</label>
+        <label for="prod">Link da imagem do produto:</label>
         <input type="text" id="prod" name="prod"><br><br>
 
-        <label for="desc">Descrição</label>
+        <label for="desc">Descrição:</label>
         <input type="text" id="desc" name="desc"><br><br>
 
-        <label for="preco">Preço</label>
+        <label for="preco">Preço:</label>
         <input type="text" id="preco" name="preco"><br><br>
 
-        <label for="quant">Quantidade</label>
+        <label for="quant">Quantidade:</label>
         <input type="text" id="qunt" name="quant"><br><br>
 
         <button type="submit">Salvar</button>
     </form>
+    <footer>
+        Copyright © 2020 <a href="index.html" id="foot">Mercearía do Léo</a> - Todos os direitos reservados
+    </footer>
 </body>
 </html>

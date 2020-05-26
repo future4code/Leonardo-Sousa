@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    margin: 10px;
+    background-color: rgb(173, 192, 206);
+}
+
+.menu{
+    background-color: rgb(0, 119, 255);
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    padding: 0px 15px;
+}
+
+a:hover{
+    color: black;
+    background-color: rgb(7, 93, 192);
+    transition: 0.6s;
+    border-radius: 5px;
+}
+
+#foot{
+    padding: 0px;
+    color: rgb(7, 93, 192);;
+}
+
+#foot:hover{
+    background-color: white;
+}
+
+.logo{
+    color: rgb(41, 45, 49);
+    display: flex;
+    justify-content: center;
+    padding: 60px;
+    background-color: rgb(99, 113, 124);
+}
+
+#apresentacao{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 34px 0;
+    text-shadow: 0 0 1px rgb(76, 76, 110);
+}
+
+footer{
+    background-color: slategrey;
+    font-size: 10px;
+    color: black;
+    padding: 10px;
+}
+
+h3{
+    padding-bottom: 20px;
+}
+
+ul{
+    list-style-type: none;
+    padding-left: 30px;
+}
+
+button{
+    background-color: rgb(7, 93, 192);
+    border: none;
+    padding: 0 15px;
+    border-radius: 5px;
+}
+
+form{
+    margin: 0 0 20px 20px;
+}
+
+input{
+    border-radius: 5px;
+    border: none;
+}
+
+button:hover{
+    background-color: green;
+}
+
+td{
+    padding: 0 25px;
+}
