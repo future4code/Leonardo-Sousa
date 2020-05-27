@@ -76,7 +76,8 @@ div img {
 }
 
 #container-para-comprar {
-    background-color: #e7eb90;
+    background-color: #e7eb90;   
+    margin: 0 auto;
 }
 
 #container-para-comprar>p {
