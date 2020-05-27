@@ -40,6 +40,7 @@ div>p:first-child {
     border-radius: 5px;
     font-size: 20px;
     color: white;
+    margin-top: 40px;
 }
 
 .botao-amarelo:hover {
@@ -111,6 +112,14 @@ td button {
     color: black;
 }
 
+td button:hover{
+    background-color: #a18f3d;
+}
+
+td button:active{
+    color: white;
+}
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
@@ -127,6 +136,7 @@ td button {
     color: black;
     position: absolute;
     left: 46%;
+    margin-top: 50px;
 }
 
 #back-button:hover {
