@@ -115,54 +115,203 @@
 }
 
 /* ----- Fase 11 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+  
+#water {
+    grid-column: span 3/5;
+}
 
 /* ----- Fase 12 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+  
+#water {
+    grid-row-start: 3;
+}
 
 /* ----- Fase 13 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+  
+#water {
+    grid-row: 3/6;
+}
 
 /* ----- Fase 14 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+  
+#poison {
+    grid-column: 2;
+    grid-row: 5;
+}
 
 /* ----- Fase 15 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+  
+#water {
+    grid-column: 2/6;
+    grid-row: 1/6; 
+}
 
 /* ----- Fase 16 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+  
+#water {
+    grid-area: 1 / 2 / 4 / 6;
+}
 
 /* ----- Fase 17 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+  
+#water-1 {
+    grid-area: 1 / 4 / 6 / 5;
+}
+  
+#water-2 {
+    grid-area: 2 / 3 / 5 / 6;
+}
 
 /* ----- Fase 18 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+  
+.water {
+    order: 0;
+}
+  
+#poison {
+    order: 1;
+}
 
 /* ----- Fase 19 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+  
+.water {
+    order: 0;
+}
+  
+.poison {
+    order: -1;
+}
 
 /* ----- Fase 20 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+  
+#water {
+    grid-column: 1;
+    grid-row: 1;
+}
 
 /* ----- Fase 21 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: repeat(8, 12.5%);
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+  
+#water {
+    grid-column: 1;
+    grid-row: 1;
+}
 
 /* ----- Fase 22 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 100px 3em 40%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
 
 /* ----- Fase 23 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
 
 /* ----- Fase 24 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 1fr 50px;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+  
+#water {
+    grid-area: 1 / 1 / 6 / 2;
+}
+  
+#poison {
+    grid-area: 1 / 5 / 6 / 6;
+}
 
 /* ----- Fase 25 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 75px 3fr 2fr; 
+    grid-template-rows: 100%;
+}
 
 /* ----- Fase 26 -----*/
-
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 12.5px 12.5px 12.5px 12.5px;
+}
+  
+#water {
+    grid-column: 1 / 6;
+    grid-row: 5 / 6;
+}
 
 /* ----- Fase 27 -----*/
-
+#garden {
+    display: grid;
+    grid-template: 60% 40% / 200px
+}
+  
+#water {
+    grid-column: 1;
+    grid-row: 1;
+}
 
 /* ----- Fase 28 -----*/
+#garden {
+    display: grid;
+    grid-template: 1fr 50px / 20% 80%;
+}
