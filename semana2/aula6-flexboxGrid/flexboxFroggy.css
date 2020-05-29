@@ -1,0 +1,173 @@
+/* ----- Fase 1 -----*/
+#pond {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ----- Fase 2 -----*/
+#pond {
+    display: flex;
+    justify-content: center;
+}
+
+/* ----- Fase 3 -----*/
+#pond {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* ----- Fase 4 -----*/
+#pond {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ----- Fase 5 -----*/
+#pond {
+    display: flex;
+    align-items: flex-end;
+}
+
+/* ----- Fase 6 -----*/
+#pond {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ----- Fase 7 -----*/
+#pond {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+/* ----- Fase 8 -----*/
+#pond {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* ----- Fase 9 -----*/
+#pond {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ----- Fase 10 -----*/
+#pond {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+/* ----- Fase 11 -----*/
+#pond {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* ----- Fase 12 -----*/
+#pond {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+}
+
+/* ----- Fase 13 -----*/
+#pond {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* ----- Fase 14 -----*/
+#pond {
+    display: flex;
+}
+  
+.yellow {
+    order: 3;
+}
+
+/* ----- Fase 15 -----*/
+#pond {
+    display: flex;
+}
+  
+.red {
+    order: -1;
+}
+
+/* ----- Fase 16 -----*/
+#pond {
+    display: flex;
+    align-items: flex-start;
+}
+  
+.yellow {
+    align-self: flex-end;
+}
+
+/* ----- Fase 17 -----*/
+#pond {
+    display: flex;
+    align-items: flex-start;
+}
+  
+.yellow {
+    align-self: flex-end;
+    order: 1
+}
+
+/* ----- Fase 18 -----*/
+#pond {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* ----- Fase 19 -----*/
+#pond {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/* ----- Fase 20 -----*/
+#pond {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+/* ----- Fase 21 -----*/
+#pond {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+/* ----- Fase 22 -----*/
+#pond {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+/* ----- Fase 23 -----*/
+#pond {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    align-content: center;
+}
+
+/* ----- Fase 24 -----*/
+#pond {
+    display: flex;
+    flex-flow: column-reverse wrap-reverse;
+    align-content: space-between;
+    justify-content: center;
+}
+
