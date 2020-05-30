@@ -136,7 +136,7 @@ div{
     justify-content: center;
 }
 
-@media screen and (min-device-width : 800px) and (max-device-width : 1000px) {
+@media screen and (min-device-width : 801px) and (max-device-width : 1100px) {
     .container{
         display: grid;
         grid-template-columns: 1fr;
@@ -208,44 +208,41 @@ div{
 
     body{
         display: grid;
-        grid-template-columns: 1fr 6fr;
-        grid-template-rows: 1fr 6fr;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 100fr;
         font-size: 24px;
         height: 1000px;
-    }
-    
-    .container{
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 2fr 2fr 1fr;
-    }
-    
-    .cima{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-    }
-    
-    .meio{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
-    }
-    
-    .baixo{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
     }
 
     .lista{
         display: none;
     }
     
+    .container{
+        grid-row: 2/3;
+        grid-column: 1/2;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 9fr 6fr 4fr;
+    }
+    
+    .cima{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+    
+    .baixo{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    
     .cabecalho{
         background-color: red;
         grid-row: 1/2;
-        grid-column: 2/3;
+        grid-column: 1/2;
+        padding: 50px;
     }
     
     .um{
@@ -262,91 +259,71 @@ div{
     
     .tres{
         background-color: green;
-        grid-row: 1/2;
-        grid-column: 3/4;
+        grid-row: 2/3;
+        grid-column: 1/3;
     }
     
     .quatro{
         background-color: blue;
-        grid-row: 2/3;
+        grid-row: 3/4;
         grid-column: 1/2;
     }
     
     .cinco{
         background-color: yellow;
-        grid-row: 2/3;
+        grid-row: 3/4;
         grid-column: 2/3;
     }
     
     .seis{
         background-color: green;
-        grid-row: 2/3;
-        grid-column: 3/4;
-    }
-    
-    .sete{
-        color: white;
-        grid-row: 1/2;
-        grid-column: 1/2;
-    }
-    
-    .oito{
-        color: white;
-        grid-row: 1/2;
-        grid-column: 2/3;
-    }
-    
-    .nove{
-        grid-row: 1/2;
-        grid-column: 1/2;
-    }
-    
-    .dez{
-        grid-row: 1/2;
-        grid-column: 2/3;
+        grid-row: 4/5;
+        grid-column: 1/3;
     }
     
     .onze{
-        grid-row: 1/2;
-        grid-column: 3/4;
+        grid-row: 2/3;
+        grid-column: 1/3;
     }
 
 }
 
-@media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+@media screen and (min-device-width : 0px) and (max-device-width : 420px) {
 
     body{
         display: grid;
-        grid-template-columns: 1fr 6fr;
+        grid-template-columns: 1fr;
         grid-template-rows: 1fr 6fr;
         font-size: 24px;
         height: 1000px;
     }
     
     .container{
+        grid-row: 2/3;
+        grid-column: 1/2;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 2fr 2fr 1fr;
+        grid-template-rows: 6fr 4fr 3fr;
     }
     
     .cima{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
     
     .meio{
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
     }
     
     .baixo{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
     }
-    
+
     .lista{
         display: none;
     }
@@ -354,7 +331,8 @@ div{
     .cabecalho{
         background-color: red;
         grid-row: 1/2;
-        grid-column: 2/3;
+        grid-column: 1/2;
+        padding: 50px;
     }
     
     .um{
@@ -365,32 +343,32 @@ div{
     
     .dois{
         background-color: yellow;
-        grid-row: 1/2;
-        grid-column: 2/3;
+        grid-row: 2/3;
+        grid-column: 1/2;
     }
     
     .tres{
         background-color: green;
-        grid-row: 1/2;
-        grid-column: 3/4;
+        grid-row: 3/4;
+        grid-column: 1/2;
     }
     
     .quatro{
         background-color: blue;
-        grid-row: 2/3;
+        grid-row: 4/5;
         grid-column: 1/2;
     }
     
     .cinco{
         background-color: yellow;
-        grid-row: 2/3;
-        grid-column: 2/3;
+        grid-row: 5/6;
+        grid-column: 1/2;
     }
     
     .seis{
         background-color: green;
-        grid-row: 2/3;
-        grid-column: 3/4;
+        grid-row: 6/7;
+        grid-column: 1/2;
     }
     
     .sete{
@@ -401,8 +379,8 @@ div{
     
     .oito{
         color: white;
-        grid-row: 1/2;
-        grid-column: 2/3;
+        grid-row: 2/3;
+        grid-column: 1/2;
     }
     
     .nove{
@@ -411,15 +389,13 @@ div{
     }
     
     .dez{
-        grid-row: 1/2;
-        grid-column: 2/3;
+        grid-row: 2/3;
+        grid-column: 1/2;
     }
     
     .onze{
-        grid-row: 1/2;
-        grid-column: 3/4;
-    }    
+        grid-row: 3/4;
+        grid-column: 1/2;
+    }
 
 }
-  
-    
