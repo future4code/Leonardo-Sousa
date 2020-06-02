@@ -76,7 +76,7 @@ Usando o comando .length ele imprime o tamanho do array
 
 // 1.
 
-let kelvin = 1
+let kelvin = 0
 let fahrenheit = 77
 let celsius = 80
 
@@ -86,10 +86,12 @@ console.log(kelvin + " graus kelvin")
 fahrenheit = celsius*9/5 + 32 
 console.log(fahrenheit + " graus fahrenheit")
 
+
 celsius = prompt ("Insira graus em Celsius")
-fahrenheit = celsius*9/5 + 32 
+let celsiusFormat = parseInt(celsius)
+fahrenheit = celsiusFormat*9/5 + 32 
 console.log(fahrenheit + " graus fahrenheit")
-kelvin = celsius + 273.15
+kelvin = celsiusFormat + 273.15
 console.log(kelvin + " graus kelvin")
 
 
@@ -110,7 +112,9 @@ console.log("5. Uma comida: " + comida)
 
 const watt = prompt ("Quantidade consumida de quilowatt-hora")
 const desconto = prompt ("Seu desconto")
-const conta 
+let conta = 0
 
-conta = ((watt * 0.5) *100)/desconto
-console.log("Valor a ser pago com desconto: " + conta)
+conta = watt * 0.05 * desconto / 100
+
+let valores = (watt * 0.05) - conta
+console.log("Valor a ser pago com desconto: " + valores) 
