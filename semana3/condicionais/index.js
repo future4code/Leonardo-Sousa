@@ -1,4 +1,4 @@
-/*// Exercício 1 ----------------------------------------------------------------------
+// Exercício 1 ----------------------------------------------------------------------
 
 const respostaDoUsuario = prompt("Digite o número que você quer testar?")
 const numero = Number(respostaDoUsuario)
@@ -167,19 +167,42 @@ if ((num1 = num2) && (num1 = num3)){
     console.log("Digite pelo menos um número diferente")
 }
 console.log(maior, medio, menor)
-*/
 
-const racional = ""
-const penas = ""
-const terrestre = ""
-const viveagua = ""
+
+// Exercício 5 ----------------------------------------------------------------------
 
 const animal = prompt("Informe o nome do animal")
 const vertebrado = prompt ("O animal possui ossos?")
 
 if(vertebrado === "sim"){
     const mamifero = prompt ("O animal possui pelos?")
-} else{
-    console.log("O animal" + animal + "é invertebrado")
+    if(mamifero === "sim"){
+        const racional = prompt ("O animal é racional?")
+        if (racional === "sim"){
+            console.log("O animal " + animal + " é um ser humano")
+        }else{
+            console.log("O animal " + animal + " é um mamífero não humano")
+        }
+    }else{
+        const penas = prompt ("O animal possui penas?")
+        if (penas === "sim"){
+            console.log("O animal " + animal + " é uma ave")
+        }else{
+            const terrestre = prompt ("é um animal terrestre?")
+            if(terrestre === "sim"){
+                const viveagua = prompt ("Passa a maior parte do tempo na agua?")
+                if(viveagua === "sim"){
+                    console.log("O animal " + animal + " é um anfíbio")
+                }else{
+                    console.log("O animal " + animal + " é um réptil")
+                }
+            }else{
+                console.log("O animal " + animal + " é um peixe")
+            }
+        }
+    }
+}else{
+    console.log("O animal " + animal + " é invertebrado")
 }
 
+// LINK PARA O DRIVE https://drive.google.com/drive/folders/1lYcqi7hJfrAQYpbaQnKDboQfGFytBVc5?usp=sharing
