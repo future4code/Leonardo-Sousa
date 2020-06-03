@@ -112,7 +112,7 @@ console.log("5. Uma comida: " + comida)
 
 const watt = prompt ("Quantidade consumida de quilowatt-hora")
 const desconto = prompt ("Seu desconto")
-let conta = 0
+let conta 
 
 conta = watt * 0.05 * desconto / 100
 
