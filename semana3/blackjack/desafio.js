@@ -31,37 +31,37 @@ if(confirm("Quer iniciar uma nova rodada?")) {
    console.log(cartaUsuario[0].texto, cartaUsuario[1].texto)
    
 
-   // pontuacaoUsuario = cartaUsuario[0].valor + cartaUsuario[1].valor
-   // pontuacaoComputador = cartaComputador[0].valor + cartaComputador[1].valor
+   pontuacaoUsuario = cartaUsuario[0].valor + cartaUsuario[1].valor
+   pontuacaoComputador = cartaComputador[0].valor + cartaComputador[1].valor
 
-   // let mensagemUsuario = [cartaUsuario[0], cartaUsuario[1]]
-   // let mensagemComputador = []
+   let mensagemUsuario = [cartaUsuario[0], cartaUsuario[1]]
+   let mensagemComputador = []
 
-   // while(pontuacaoUsuario <= 21){
-   //    if(confirm(
-   //       "Suas cartas são " + mensagemUsuario + " . A carta revelada do computador é " + cartaComputador[0].texto +
-   //       "\n" + "Deseja comprar mais uma carta?"
-   //    )){
-   //       cartaUsuario.push(comprarCarta())
-   //       pontuacaoUsuario += cartaUsuario[2].valor
+   while(pontuacaoUsuario <= 21){
+      if(confirm(
+         "Suas cartas são " + mensagemUsuario + " . A carta revelada do computador é " + cartaComputador[0].texto +
+         "\n" + "Deseja comprar mais uma carta?"
+      )){
+         cartaUsuario.push(comprarCarta())
+         pontuacaoUsuario += cartaUsuario[2].valor
          
-   //    }else{
+      }else{
          
-   //    }
-   // }
-   // if(pontuacaoUsuario > pontuacaoComputador){
-   //    alert("Suas cartas são 3♣️ J♥️ 5♣️ 4♣️ . Sua pontuação é 22.\n" +
-   //       "As cartas do computador são Q♠️ K♦️ . A pontuação do computador é 20.\n" +
-   //       "O Usuário ganhou!")
-   // }else if(pontuacaoComputador > pontuacaoUsuario){
-   //    alert("Suas cartas são 3♣️ J♥️ 5♣️ 4♣️ . Sua pontuação é 22.\n" +
-   //       "As cartas do computador são Q♠️ K♦️ . A pontuação do computador é 20.\n" +
-   //       "O computador ganhou!")
-   // }else{
-   //    alert("Suas cartas são 3♣️ J♥️ 5♣️ 4♣️ . Sua pontuação é 22.\n" +
-   //       "As cartas do computador são Q♠️ K♦️ . A pontuação do computador é 20.\n" +
-   //       "Empate!")
-   // }
+      }
+   }
+   if(pontuacaoUsuario > pontuacaoComputador){
+      alert("Suas cartas são 3♣️ J♥️ 5♣️ 4♣️ . Sua pontuação é 22.\n" +
+         "As cartas do computador são Q♠️ K♦️ . A pontuação do computador é 20.\n" +
+         "O Usuário ganhou!")
+   }else if(pontuacaoComputador > pontuacaoUsuario){
+      alert("Suas cartas são 3♣️ J♥️ 5♣️ 4♣️ . Sua pontuação é 22.\n" +
+         "As cartas do computador são Q♠️ K♦️ . A pontuação do computador é 20.\n" +
+         "O computador ganhou!")
+   }else{
+      alert("Suas cartas são 3♣️ J♥️ 5♣️ 4♣️ . Sua pontuação é 22.\n" +
+         "As cartas do computador são Q♠️ K♦️ . A pontuação do computador é 20.\n" +
+         "Empate!")
+   }
 } else {
    console.log("O jogo acabou")
 }
