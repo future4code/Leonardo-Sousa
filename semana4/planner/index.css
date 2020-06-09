@@ -5,6 +5,7 @@
 
 body{
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 header{
@@ -40,6 +41,7 @@ button:hover{
 
 ul{
     list-style-position: inside;
+    font-size: 16px;
 }
 
 main{
@@ -50,19 +52,20 @@ main{
 }
 
 main > *{
-    border: 1px solid black;
+    box-shadow: 2px 2px  gray;
     border-radius: 4px;
     min-width: 380px;
     min-height: 320px;
     margin: 8px;
-    background-color: white;
+    background-color: rgb(221, 221, 221);
+    color: black;
+    font-size: 24px;
 }
 
 footer{
     display: flex;
     justify-content: space-between;
     background-color: #e37222;
-    color: white;
     padding: 12px;
 }
 
