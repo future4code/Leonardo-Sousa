@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="index.js"></script>
+    <link href="index.css" type="text/css" rel="stylesheet" />
+    <title>Planner</title>
+  </head>
+  <body>
+    <header>
+      <div class="nome-pagina"> Minha Semana </div>  
+      <div class="form">
+      <label for="tarefa">Nova tarefa:</label>
+      <input type="text" name="tarefa" id="tarefa" value="">  
+      <select name="diaDaSemana" id="diaDaSemana">
+        <option value="segunda">Segunda-Feira</option>
+        <option value="terca">Terça-Feira</option>
+        <option value="quarta">Quarta-Feira</option>
+        <option value="quinta">Quinta-Feira</option>
+        <option value="sexta">Sexta-Feira</option>
+        <option value="sabado">Sábado</option>
+        <option value="domingo">Domingo</option>
+      </select>
+      <button onclick="adicionaTarefa()">CRIAR TAREFA</button>
+      </div> 
+    </header>
+    <main>
+      <div>
+        --Segunda
+        <ul id="segunda"></ul>
+      </div>
+      <div>
+        --Terça
+        <ul id="terca"></ul>
+      </div>
+      <div>
+        --Quarta
+        <ul id="quarta"></ul>
+      </div>
+      <div >
+        --Quinta
+        <ul id="quinta"></ul>
+      </div>
+      <div>
+        --Sexta
+        <ul id="sexta"></ul>
+      </div>
+      <div>
+        --Sábado
+        <ul id="sabado"></ul>
+      </div>
+      <div>
+        --Domingo
+        <ul id="domingo"></ul>
+      </div>
+    </main>
+    <footer>
+      <p> Planner do Leo</p><p>© 2020 Todos os direitos reservados </p>
+    </footer>
+  </body>
+</html>
