@@ -8,14 +8,24 @@ body{
 }
 
 header{
-    background-color: #e37222;
-    padding: 12px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(24, 28, 31);
+    color: white;
+    height: 10vh;
+    padding: 0 20px;
+    font-size: 24px;
 }
 
 button{
     border: none;
     border-radius: 4px;
     padding: 2px 20px;
+    height: 22px;
+}
+
+#posts{
+    padding: 20px;
 }
 
 button:hover{
@@ -26,24 +36,56 @@ button:hover{
 main{
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
     justify-content: center;
-    background-color: #66b9bf;
+    background-color: #88c6ca;
+    min-height: 80vh;
 }
 
 main > *{
-    box-shadow: 2px 2px  gray;
-    border-radius: 4px;
-    min-width: 380px;
-    min-height: 320px;
-    background-color: rgb(221, 221, 221);
     color: black;
     font-size: 24px;
+    width: 80vw;
+}
+
+.form{
+    margin-top: 2vh;
+    height: 30vh;
+    background-color: #1DA4BF;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.form >*{
+    margin: 5px;
+}
+
+input{
+    height: 22px;
 }
 
 footer{
     display: flex;
     justify-content: space-between;
-    background-color: #e37222;
-    padding: 12px;
+    align-items: center;
+    background-color: rgb(24, 28, 31);
+    color: white;
+    height: 10vh;
+    padding: 0 20px;
 }
 
+hr{
+    border: 2px solid black;
+}
+
+.author{
+    font-size: 12px;
+    color: white;
+}
+
+.content{
+    font-size: 20px;
+    word-wrap: break-word;
+}

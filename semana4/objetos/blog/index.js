@@ -1,10 +1,10 @@
 let arrayPost = []
+let divPosts = document.getElementById("posts")
 
 function adicionaPost(){
     let inputTitulo = document.getElementById("titulo")
     let inputAutor = document.getElementById("autor")
     let inputConteudo = document.getElementById("conteudo")
-
     let titulo = inputTitulo.value
     let autor = inputAutor.value
     let conteudo = inputConteudo.value
@@ -15,19 +15,17 @@ function adicionaPost(){
         conteudo 
     }
     arrayPost.push(post)
-    console.log(arrayPost)
     
     inputAutor.value = ""
     inputConteudo.value = ""
     inputTitulo.value = ""
+
+    divPosts.innerHTML += `<hr><p class= title>${post.titulo}</p><p class= author> ${post.autor}</p>
+    <p class= content>${post.conteudo}</p>` 
 }
 
-let ar = adicionaPost()
-console.log(ar)
-
-
-function enviaEnter(){
-    if(enviaEnter().key === "Enter"){
+function enviaEnter(evento){
+    if(evento.key === "Enter"){
         adicionaPost()
-    }
+    }           
 }
