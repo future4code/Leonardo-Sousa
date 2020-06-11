@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    background-color: #e37222;
+    padding: 12px 100px;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    background-color: #e37222;
+    padding: 12px;
+}
+
