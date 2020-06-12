@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(36, 36, 36);
+    padding: 0 50px;
+    font-weight: 500;
+    font-size: 18px;
+    height: 10vh;
+    color: white;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(235, 233, 233);
+    min-height: 80vh;
+    align-items: center;
+}
+
+main > *{
+    width: 315px;
+    min-height: 300px;
+    border: 1px solid rgb(175, 174, 174);
+    background-color: white;
+    border-radius: 2px;
+    box-shadow:  2px 2px 2px rgb(190, 190, 190);
+    margin: 5px;
+}
+
+ul{
+    list-style-position: inside;
+}
+
+.cadastro > *{
+    margin: 16px 0;
+}
+
+.detalhes-despesas > *{
+    margin: 16px 0;
+}
+
+.extrato > *{
+    margin: 16px 0;
+}
+
+button{
+    background-color: rgb(11, 111, 224);
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+button:hover{
+    background-color: blue;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(36, 36, 36);
+    height: 10vh;
+    color: white;
+}
+
