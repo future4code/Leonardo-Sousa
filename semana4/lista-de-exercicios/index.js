@@ -36,3 +36,19 @@
 
 
 // Lógica de programação - Exercício 1 ------------------------------------------------------------
+
+// O for of passa por todo array iterando cada elemento, usado especificamente para arrays. 
+// for (elemento of array){
+// }
+
+// Nesse exemplo com o for, será mostrado o elemento de cada posição(i) até que a posição(i) fique igual ou 
+// maior que o tamanho do array  
+// for (let i; i < array.length; i++){
+//     array[i]
+// }
+
+// Usado para arrays, o forEach, percorre cada elemento do array tendo como parâmetro uma função
+// array.forEach(elemento => {
+// });
+
+
