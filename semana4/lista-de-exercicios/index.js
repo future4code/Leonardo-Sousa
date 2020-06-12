@@ -64,9 +64,12 @@
 // Lógica de programação - Exercício 3 ------------------------------------------------------------
 
 // Ele não funcionava, faltava declarar a quantidade de numeros pares e um incremento no while
+// e tava com igual sobrando no loop
+
 // const quantidadeDeNumerosPares = 5
 // let i = 0
 // while(i < quantidadeDeNumerosPares) {
 //         console.log(i*2)
 //         i++
 // }
+
