@@ -18,3 +18,18 @@
 // default do switch ja que nele nao tem o investimento Tesouro Direto.
 
 
+// Interpretação de código - Exercício 3 ------------------------------------------------------------
+
+// Cria três arrays, um com números e dois vazios, é criado um for of para percorrer o array com números 
+// e um if, se for mod 2 igual a 0 ele é par e vai ser empurrado para um array que estava vazio e os 
+// impares vão para o outro array que estava vazio. No console será mostrado quantos números tem no array
+// original a partir da .legth e nos outros dois será mostrado quantos impares e quantos pares.
+
+
+// Interpretação de código - Exercício 4 ------------------------------------------------------------
+
+// É criado um array com valore numéricos e duas variáveis, uma com valor infinity e outra com valor zero,
+// é criado um for of para percorrer o array de números dentro dele dois ifs, se o número do array for menor  
+// que a primeira variável, numero1, o número vai substituir o valor da variavel, o mesmo aconteco com a 
+// segunda variável mas se o número for maior que ela. Nos consoles são mostrados o maior e o menor número
+// do array.  
