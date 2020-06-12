@@ -32,4 +32,7 @@
 // é criado um for of para percorrer o array de números dentro dele dois ifs, se o número do array for menor  
 // que a primeira variável, numero1, o número vai substituir o valor da variavel, o mesmo aconteco com a 
 // segunda variável mas se o número for maior que ela. Nos consoles são mostrados o maior e o menor número
-// do array.  
+// do array.
+
+
+// Lógica de programação - Exercício 1 ------------------------------------------------------------
