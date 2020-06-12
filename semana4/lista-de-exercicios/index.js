@@ -52,3 +52,12 @@
 // });
 
 
+// Lógica de programação - Exercício 2 ------------------------------------------------------------
+
+// a. false
+// b. false
+// c. true
+// d. true
+// e. true
+
+
