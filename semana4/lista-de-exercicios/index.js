@@ -215,19 +215,40 @@
 
 // Objetos - Exercício 4 ------------------------------------------------------------
 
-let pessoa = {
-    nome: "Leonardo",
-    idade: 22,
-    email: "leogomes@gmail.com",
-    endereco: "Brasília"
-}
+// let pessoa = {
+//     nome: "Leonardo",
+//     idade: 22,
+//     email: "leogomes@gmail.com",
+//     endereco: "Brasília"
+// }
 
-function anonimizarPessoa(){
-    let anonimo = {
-        ...pessoa,
-        nome: "ANÔNIMO"
-    }
-    return anonimo
-}
+// function anonimizarPessoa(){
+//     let anonimo = {
+//         ...pessoa,
+//         nome: "ANÔNIMO"
+//     }
+//     return anonimo
+// }
 
-console.log(anonimizarPessoa())
+// console.log(anonimizarPessoa())
+
+
+// Funções de arrays- Exercício 1 - A ------------------------------------------------------------
+
+let arrayIdades = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
+
+function mostraMaioresDeIdade(){
+    let arrayMaioresDeIdade = arrayIdades.filter((elementoIdade, index, array) => {
+        if(elementoIdade.idade >= 18){
+            return true
+        }
+        return false
+    })
+    return arrayMaioresDeIdade
+}
+console.log(mostraMaioresDeIdade())
