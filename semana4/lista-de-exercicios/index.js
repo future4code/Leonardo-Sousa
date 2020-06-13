@@ -98,40 +98,70 @@
 
 // Lógica de programação - Exercício 5 ------------------------------------------------------------
 
-function calculaNumeros(num1, num2){
-    let maior = 0
-    let menor = 0
-    let divisivel1 = ""
-    let divisivel2 = ""
+// function calculaNumeros(num1, num2){
+//     let maior = 0
+//     let menor = 0
+//     let divisivel1 = ""
+//     let divisivel2 = ""
 
-    if(num1 > num2){
-        maior = num1
-        menor = num2
-    }else if(num2 > num1){
-        maior = num2
-        menor = num1
-    }else{
-        maior = "Os números são iguais"
+//     if(num1 > num2){
+//         maior = num1
+//         menor = num2
+//     }else if(num2 > num1){
+//         maior = num2
+//         menor = num1
+//     }else{
+//         maior = "Os números são iguais"
+//     }
+
+//     if(num1 % num2 === 0){
+//         divisivel1 = "é divisível"
+//     }else{
+//         divisivel1 = "não é divisível"
+//     }
+
+//     if(num2 % num1 === 0){
+//         divisivel2 = "é divisível"
+//     }else{
+//         divisivel2 = "não é divisível"
+//     }
+
+//     let diferenca = maior - menor
+//     let mensagem = "O maior é " + maior + "\n" + num1 + " " + divisivel1 + " por " + num2 + 
+//     "\n" + num2 + " " + divisivel2 + " por " + num1 + "\nA diferença entre eles é " + diferenca
+
+//     return mensagem
+// }
+
+// let numeros = calculaNumeros(15, 30)
+// console.log(numeros)
+
+
+// Funções - Exercício 1 ------------------------------------------------------------
+
+
+const numeros = [32, 45, 12, 361, 60, 76, 98, 2, 10, 888, 54]
+
+let menor = Infinity
+let segundoMenor = 0
+let maior = 0
+let segundoMaior = 0
+
+for(let numero of numeros){
+    if(numero < menor){
+        segundoMenor = menor
+        menor = numero
     }
 
-    if(num1 % num2 === 0){
-        divisivel1 = "é divisível"
-    }else{
-        divisivel1 = "não é divisível"
+    if(numero < segundoMenor && numero > menor){
+        segundoMenor = numero
     }
 
-    if(num2 % num1 === 0){
-        divisivel2 = "é divisível"
-    }else{
-        divisivel2 = "não é divisível"
+    if(numero > maior){
+        segundoMaior = maior
+        maior = numero
     }
-
-    let diferenca = maior - menor
-    let mensagem = "O maior é " + maior + "\n" + num1 + " " + divisivel1 + " por " + num2 + 
-    "\n" + num2 + " " + divisivel2 + " por " + num1 + "\nA diferença entre eles é " + diferenca
-
-    return mensagem
 }
+console.log("O segundo menor número é " + segundoMenor)
+console.log("O segundo maior número é " + segundoMaior)
 
-let numeros = calculaNumeros(15, 30)
-console.log(numeros)
