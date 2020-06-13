@@ -184,7 +184,7 @@
 // Objetos - Exercício 2 ------------------------------------------------------------
 
 // function criaRetangulo(lado1, lado2){
-//     objRetangulo = {
+//     let objRetangulo = {
 //         largura: lado1,
 //         altura: lado2,
 //         perimetro: 2 * (lado1 + lado2),
@@ -196,18 +196,38 @@
 // console.log(criaRetangulo(2, 4))
 
 
-// Objetos - Exercício 2 ------------------------------------------------------------
+// Objetos - Exercício 3 ------------------------------------------------------------
 
-let arrayAtorAtriz = [" Marc Zinga", " Aïssa Maïga", " Bayron Lebli"]
+// let arrayAtorAtriz = [" Marc Zinga", " Aïssa Maïga", " Bayron Lebli"]
 
-filme = {
-    nome: "Bem-vindo a Marly-Gomont",
-    ano: 2016,
-    diretor: "Julien Rambaldi",
-    AtorAtriz: arrayAtorAtriz
+// let filme = {
+//     nome: "Bem-vindo a Marly-Gomont",
+//     ano: 2016,
+//     diretor: "Julien Rambaldi",
+//     AtorAtriz: arrayAtorAtriz
+// }
+
+// let mensagem = "Venha assistir ao filme " + filme.nome + ", de " + filme.ano + ", dirigido por "
+// + filme.diretor + " e estrelado por " + arrayAtorAtriz 
+
+// console.log(mensagem)
+
+
+// Objetos - Exercício 4 ------------------------------------------------------------
+
+let pessoa = {
+    nome: "Leonardo",
+    idade: 22,
+    email: "leogomes@gmail.com",
+    endereco: "Brasília"
 }
 
-let mensagem = "Venha assistir ao filme " + filme.nome + ", de " + filme.ano + ", dirigido por "
-+ filme.diretor + " e estrelado por " + arrayAtorAtriz 
+function anonimizarPessoa(){
+    let anonimo = {
+        ...pessoa,
+        nome: "ANÔNIMO"
+    }
+    return anonimo
+}
 
-console.log(mensagem)
+console.log(anonimizarPessoa())
