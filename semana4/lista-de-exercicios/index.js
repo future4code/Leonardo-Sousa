@@ -277,7 +277,7 @@
 
 // Funções de arrays- Exercício 2 - A ------------------------------------------------------------
 
-// const array = [1, 2, 3, 4, 5, 6]
+const array = [1, 2, 3, 4, 5, 6]
 
 // function multiplicadoPorDois(a){
 //     a = array.map((elementoNum, index, a) => {
@@ -291,13 +291,26 @@
 
 // Funções de arrays- Exercício 2 - B ------------------------------------------------------------
 
-const array = [1, 2, 3, 4, 5, 6]
+// function multiplicadoPorTres(a){
+//     a = array.map((elementoNum, index, a) => {
+//         return "" + elementoNum * 3
+//     })
+//     return a
+// }
 
-function multiplicadoPorTres(a){
+// console.log(multiplicadoPorTres(array))
+
+
+// Funções de arrays- Exercício 2 - C ------------------------------------------------------------
+
+function mostraImparOuPar(a){
     a = array.map((elementoNum, index, a) => {
-        return "" + elementoNum * 3
+        if(elementoNum % 2 === 0){
+            return elementoNum + " é par"
+        }
+        return elementoNum + " é impar"
     })
     return a
 }
 
-console.log(multiplicadoPorTres(array))
+console.log(mostraImparOuPar(array))
