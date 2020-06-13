@@ -180,3 +180,19 @@
 // relação uma com a outra, usamos eles para economizar codigo ao invés de usar variáveis, e também
 // facilita quando for acessar as informações deles.
 
+
+// Objetos - Exercício 2 ------------------------------------------------------------
+
+function criaRetangulo(lado1, lado2){
+    objRetangulo = {
+        largura: lado1,
+        altura: lado2,
+        perimetro: 2 * (lado1 + lado2),
+        area: lado1 * lado2
+    }
+    return objRetangulo
+}
+
+console.log(criaRetangulo(2, 4))
+
+
