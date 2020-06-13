@@ -315,6 +315,7 @@ const array = [1, 2, 3, 4, 5, 6]
 
 // console.log(mostraImparOuPar(array))
 
+
 // Funções de arrays- Exercício 3 - A ------------------------------------------------------------
 
 const pessoas = [
@@ -326,13 +327,25 @@ const pessoas = [
 	{ nome: "Soter", idade: 70, altura: 1.9}
 ]
 
-function filtraFila(){
-    let filaFiltrada = pessoas.filter((elementoPessoa, index, array) => {
-        if(elementoPessoa.altura >= 1.5 && elementoPessoa.idade > 14 && elementoPessoa.idade < 60){
+// function filtraFilaEntra(){
+//     let filaFiltradaEntra = pessoas.filter((elementoPessoa, index, array) => {
+//         if(elementoPessoa.altura >= 1.5 && elementoPessoa.idade > 14 && elementoPessoa.idade < 60){
+//             return true
+//         }
+//     })
+//     return filaFiltradaEntra
+// }
+// console.log(filtraFilaEntra())
+
+
+// Funções de arrays- Exercício 3 - B ------------------------------------------------------------
+
+function filtraFilaNaoEntra(){
+    let filaFiltradaNaoEntra = pessoas.filter((elementoPessoa, index, array) => {
+        if(elementoPessoa.altura < 1.5 || elementoPessoa.idade < 14 || elementoPessoa.idade > 60){
             return true
         }
     })
-    return filaFiltrada
+    return filaFiltradaNaoEntra
 }
-console.log(filtraFila())
-
+console.log(filtraFilaNaoEntra())
