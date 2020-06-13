@@ -256,20 +256,34 @@
 
 // Funções de arrays- Exercício 1 - B ------------------------------------------------------------
 
-let arrayIdades = [
-	{ nome: "Pedro", idade: 20 },
-	{ nome: "João", idade: 10 },
-	{ nome: "Paula", idade: 12 },
-	{ nome: "Artur", idade: 89 } 
-]
+// let arrayIdades = [
+// 	{ nome: "Pedro", idade: 20 },
+// 	{ nome: "João", idade: 10 },
+// 	{ nome: "Paula", idade: 12 },
+// 	{ nome: "Artur", idade: 89 } 
+// ]
 
-function mostraMenoresDeIdade(){
-    let arrayMenoresDeIdade = arrayIdades.filter((elementoIdade, index, array) => {
-        if(elementoIdade.idade < 20){
-            return true
-        }
-        return false
+// function mostraMenoresDeIdade(){
+//     let arrayMenoresDeIdade = arrayIdades.filter((elementoIdade, index, array) => {
+//         if(elementoIdade.idade < 20){
+//             return true
+//         }
+//         return false
+//     })
+//     return arrayMenoresDeIdade
+// }
+// console.log(mostraMenoresDeIdade())
+
+
+// Funções de arrays- Exercício 2 - A ------------------------------------------------------------
+
+const array = [1, 2, 3, 4, 5, 6]
+
+function multiplicadoPorDois(a){
+    a = array.map((elementoNum, index, a) => {
+        return elementoNum * 2
     })
-    return arrayMenoresDeIdade
+    return a
 }
-console.log(mostraMenoresDeIdade())
+
+console.log(multiplicadoPorDois(array))
