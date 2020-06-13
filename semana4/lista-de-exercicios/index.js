@@ -139,29 +139,36 @@
 
 // Funções - Exercício 1 ------------------------------------------------------------
 
+// const numeros = [32, 45, 12, 361, 60, 76, 98, 2, 10, 888, 54]
 
-const numeros = [32, 45, 12, 361, 60, 76, 98, 2, 10, 888, 54]
+// let menor = Infinity
+// let segundoMenor = 0
+// let maior = 0
+// let segundoMaior = 0
 
-let menor = Infinity
-let segundoMenor = 0
-let maior = 0
-let segundoMaior = 0
+// for(let numero of numeros){
+//     if(numero < menor){
+//         segundoMenor = menor
+//         menor = numero
+//     }
 
-for(let numero of numeros){
-    if(numero < menor){
-        segundoMenor = menor
-        menor = numero
-    }
+//     if(numero < segundoMenor && numero > menor){
+//         segundoMenor = numero
+//     }
 
-    if(numero < segundoMenor && numero > menor){
-        segundoMenor = numero
-    }
+//     if(numero > maior){
+//         segundoMaior = maior
+//         maior = numero
+//     }
+// }
+// console.log("O segundo menor número é " + segundoMenor)
+// console.log("O segundo maior número é " + segundoMaior)
 
-    if(numero > maior){
-        segundoMaior = maior
-        maior = numero
-    }
+
+// Funções - Exercício 2 ------------------------------------------------------------
+
+let hello = () => {
+    return "Hello Labenu"
 }
-console.log("O segundo menor número é " + segundoMenor)
-console.log("O segundo maior número é " + segundoMaior)
-
+let mensagem = hello()
+alert(mensagem)
