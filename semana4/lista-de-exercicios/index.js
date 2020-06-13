@@ -167,8 +167,16 @@
 
 // Funções - Exercício 2 ------------------------------------------------------------
 
-let hello = () => {
-    return "Hello Labenu"
-}
-let mensagem = hello()
-alert(mensagem)
+// let hello = () => {
+//     return "Hello Labenu"
+// }
+// let mensagem = hello()
+// alert(mensagem)
+
+
+// Objetos - Exercício 1 ------------------------------------------------------------
+
+// Objetos e arrays devemos usar quando vamos guardar várias informações e que geralmente tem 
+// relação uma com a outra, usamos eles para economizar codigo ao invés de usar variáveis, e também
+// facilita quando for acessar as informações deles.
+
