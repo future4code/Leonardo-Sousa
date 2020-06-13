@@ -277,13 +277,27 @@
 
 // Funções de arrays- Exercício 2 - A ------------------------------------------------------------
 
+// const array = [1, 2, 3, 4, 5, 6]
+
+// function multiplicadoPorDois(a){
+//     a = array.map((elementoNum, index, a) => {
+//         return elementoNum * 2
+//     })
+//     return a
+// }
+
+// console.log(multiplicadoPorDois(array))
+
+
+// Funções de arrays- Exercício 2 - B ------------------------------------------------------------
+
 const array = [1, 2, 3, 4, 5, 6]
 
-function multiplicadoPorDois(a){
+function multiplicadoPorTres(a){
     a = array.map((elementoNum, index, a) => {
-        return elementoNum * 2
+        return "" + elementoNum * 3
     })
     return a
 }
 
-console.log(multiplicadoPorDois(array))
+console.log(multiplicadoPorTres(array))
