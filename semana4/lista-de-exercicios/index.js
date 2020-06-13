@@ -79,18 +79,59 @@
 
 // Lógica de programação - Exercício 4 ------------------------------------------------------------
 
-let tipo = ""
+// let tipo = ""
 
-function tipoDeTriangulo(a, b, c){
-    if(a === b && b === c){
-        tipo = "O triângulo é equilátero"
-    }else if(a === b || b === c || c === a){
-        tipo = "O triângulo é escaleno"
+// function tipoDeTriangulo(a, b, c){
+//     if(a === b && b === c){
+//         tipo = "O triângulo é equilátero"
+//     }else if(a === b || b === c || c === a){
+//         tipo = "O triângulo é escaleno"
+//     }else{
+//         tipo = "O triângulo é isósceles"
+//     }
+//     return tipo
+// }
+
+// let medida = tipoDeTriangulo(2, 2, 2)
+// console.log(medida)
+
+
+// Lógica de programação - Exercício 5 ------------------------------------------------------------
+
+function calculaNumeros(num1, num2){
+    let maior = 0
+    let menor = 0
+    let divisivel1 = ""
+    let divisivel2 = ""
+
+    if(num1 > num2){
+        maior = num1
+        menor = num2
+    }else if(num2 > num1){
+        maior = num2
+        menor = num1
     }else{
-        tipo = "O triângulo é isósceles"
+        maior = "Os números são iguais"
     }
-    return tipo
+
+    if(num1 % num2 === 0){
+        divisivel1 = "é divisível"
+    }else{
+        divisivel1 = "não é divisível"
+    }
+
+    if(num2 % num1 === 0){
+        divisivel2 = "é divisível"
+    }else{
+        divisivel2 = "não é divisível"
+    }
+
+    let diferenca = maior - menor
+    let mensagem = "O maior é " + maior + "\n" + num1 + " " + divisivel1 + " por " + num2 + 
+    "\n" + num2 + " " + divisivel2 + " por " + num1 + "\nA diferença entre eles é " + diferenca
+
+    return mensagem
 }
 
-let medida = tipoDeTriangulo(2, 2, 2)
-console.log(medida)
+let numeros = calculaNumeros(15, 30)
+console.log(numeros)
