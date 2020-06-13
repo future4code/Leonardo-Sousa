@@ -38,16 +38,19 @@
 // Lógica de programação - Exercício 1 ------------------------------------------------------------
 
 // O for of passa por todo array iterando cada elemento, usado especificamente para arrays. 
+
 // for (elemento of array){
 // }
 
 // Nesse exemplo com o for, será mostrado o elemento de cada posição(i) até que a posição(i) fique igual ou 
 // maior que o tamanho do array  
+
 // for (let i; i < array.length; i++){
 //     array[i]
 // }
 
 // Usado para arrays, o forEach, percorre cada elemento do array tendo como parâmetro uma função
+
 // array.forEach(elemento => {
 // });
 
@@ -73,3 +76,21 @@
 //         i++
 // }
 
+
+// Lógica de programação - Exercício 4 ------------------------------------------------------------
+
+let tipo = ""
+
+function tipoDeTriangulo(a, b, c){
+    if(a === b && b === c){
+        tipo = "O triângulo é equilátero"
+    }else if(a === b || b === c || c === a){
+        tipo = "O triângulo é escaleno"
+    }else{
+        tipo = "O triângulo é isósceles"
+    }
+    return tipo
+}
+
+let medida = tipoDeTriangulo(2, 2, 2)
+console.log(medida)
