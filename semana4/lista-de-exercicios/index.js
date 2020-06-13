@@ -183,16 +183,31 @@
 
 // Objetos - Exercício 2 ------------------------------------------------------------
 
-function criaRetangulo(lado1, lado2){
-    objRetangulo = {
-        largura: lado1,
-        altura: lado2,
-        perimetro: 2 * (lado1 + lado2),
-        area: lado1 * lado2
-    }
-    return objRetangulo
+// function criaRetangulo(lado1, lado2){
+//     objRetangulo = {
+//         largura: lado1,
+//         altura: lado2,
+//         perimetro: 2 * (lado1 + lado2),
+//         area: lado1 * lado2
+//     }
+//     return objRetangulo
+// }
+
+// console.log(criaRetangulo(2, 4))
+
+
+// Objetos - Exercício 2 ------------------------------------------------------------
+
+let arrayAtorAtriz = [" Marc Zinga", " Aïssa Maïga", " Bayron Lebli"]
+
+filme = {
+    nome: "Bem-vindo a Marly-Gomont",
+    ano: 2016,
+    diretor: "Julien Rambaldi",
+    AtorAtriz: arrayAtorAtriz
 }
 
-console.log(criaRetangulo(2, 4))
+let mensagem = "Venha assistir ao filme " + filme.nome + ", de " + filme.ano + ", dirigido por "
++ filme.diretor + " e estrelado por " + arrayAtorAtriz 
 
-
+console.log(mensagem)
