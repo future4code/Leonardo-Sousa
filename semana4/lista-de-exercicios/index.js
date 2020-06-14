@@ -318,14 +318,14 @@ const array = [1, 2, 3, 4, 5, 6]
 
 // Funções de arrays- Exercício 3 - A ------------------------------------------------------------
 
-const pessoas = [
-	{ nome: "Paula", idade: 12, altura: 1.8},
-	{ nome: "João", idade: 20, altura: 1.3},
-	{ nome: "Pedro", idade: 15, altura: 1.9},
-	{ nome: "Luciano", idade: 22, altura: 1.8},
-	{ nome: "Artur", idade: 10, altura: 1.2},
-	{ nome: "Soter", idade: 70, altura: 1.9}
-]
+// const pessoas = [
+// 	{ nome: "Paula", idade: 12, altura: 1.8},
+// 	{ nome: "João", idade: 20, altura: 1.3},
+// 	{ nome: "Pedro", idade: 15, altura: 1.9},
+// 	{ nome: "Luciano", idade: 22, altura: 1.8},
+// 	{ nome: "Artur", idade: 10, altura: 1.2},
+// 	{ nome: "Soter", idade: 70, altura: 1.9}
+// ]
 
 // function filtraFilaEntra(){
 //     let filaFiltradaEntra = pessoas.filter((elementoPessoa, index, array) => {
@@ -340,12 +340,41 @@ const pessoas = [
 
 // Funções de arrays- Exercício 3 - B ------------------------------------------------------------
 
-function filtraFilaNaoEntra(){
-    let filaFiltradaNaoEntra = pessoas.filter((elementoPessoa, index, array) => {
-        if(elementoPessoa.altura < 1.5 || elementoPessoa.idade < 14 || elementoPessoa.idade > 60){
-            return true
-        }
-    })
-    return filaFiltradaNaoEntra
-}
-console.log(filtraFilaNaoEntra())
+// function filtraFilaNaoEntra(){
+//     let filaFiltradaNaoEntra = pessoas.filter((elementoPessoa, index, array) => {
+//         if(elementoPessoa.altura < 1.5 || elementoPessoa.idade < 14 || elementoPessoa.idade > 60){
+//             return true
+//         }
+//     })
+//     return filaFiltradaNaoEntra
+// }
+// console.log(filtraFilaNaoEntra())
+
+
+// Funções de arrays- Exercício 4 ------------------------------------------------------------
+
+const consultas = [
+	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
+
+let arrayEmails = consultas.map((elementoConsulta, index, array) => {
+    let gen = ""
+    let lembrete = ""
+    if(elementoConsulta.genero === "feminino"){
+        gen = "Sra."
+        lembrete = "lembrá-la"
+    }else{
+        gen = "Sr."
+        lembrete = "lembrá-lo"
+    }
+    if(elementoConsulta.cancelada === true){
+        return `Olá, ${gen} ${elementoConsulta.nome}. Infelizmente, sua consulta marcada para o dia ${elementoConsulta.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la`
+    }else{
+        return `Olá, ${gen} ${elementoConsulta.nome}. Estamos enviando esta mensagem para ${lembrete} da sua consulta no dia ${elementoConsulta.data}. Por favor, acuse o recebimento deste e-mail.`
+    }
+})
+
+console.log(arrayEmails)
