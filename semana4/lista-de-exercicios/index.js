@@ -277,7 +277,7 @@
 
 // Funções de arrays- Exercício 2 - A ------------------------------------------------------------
 
-const array = [1, 2, 3, 4, 5, 6]
+// const array = [1, 2, 3, 4, 5, 6]
 
 // function multiplicadoPorDois(a){
 //     a = array.map((elementoNum, index, a) => {
@@ -353,28 +353,53 @@ const array = [1, 2, 3, 4, 5, 6]
 
 // Funções de arrays- Exercício 4 ------------------------------------------------------------
 
-const consultas = [
-	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
-	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
-	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
-	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+// const consultas = [
+// 	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+// 	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+// 	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+// 	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+// ]
+
+// let arrayEmails = consultas.map((elementoConsulta, index, array) => {
+//     let gen = ""
+//     let lembrete = ""
+//     if(elementoConsulta.genero === "feminino"){
+//         gen = "Sra."
+//         lembrete = "lembrá-la"
+//     }else{
+//         gen = "Sr."
+//         lembrete = "lembrá-lo"
+//     }
+//     if(elementoConsulta.cancelada === true){
+//         return `Olá, ${gen} ${elementoConsulta.nome}. Infelizmente, sua consulta marcada para o dia ${elementoConsulta.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la`
+//     }else{
+//         return `Olá, ${gen} ${elementoConsulta.nome}. Estamos enviando esta mensagem para ${lembrete} da sua consulta no dia ${elementoConsulta.data}. Por favor, acuse o recebimento deste e-mail.`
+//     }
+// })
+
+// console.log(arrayEmails)
+
+
+// Funções de arrays- Exercício 5 ------------------------------------------------------------
+
+const contas = [
+	{ cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+	{ cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+	{ cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+	{ cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+	{ cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+	{ cliente: "Soter", saldoTotal: 1200, compras: [] }
 ]
 
-let arrayEmails = consultas.map((elementoConsulta, index, array) => {
-    let gen = ""
-    let lembrete = ""
-    if(elementoConsulta.genero === "feminino"){
-        gen = "Sra."
-        lembrete = "lembrá-la"
-    }else{
-        gen = "Sr."
-        lembrete = "lembrá-lo"
-    }
-    if(elementoConsulta.cancelada === true){
-        return `Olá, ${gen} ${elementoConsulta.nome}. Infelizmente, sua consulta marcada para o dia ${elementoConsulta.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la`
-    }else{
-        return `Olá, ${gen} ${elementoConsulta.nome}. Estamos enviando esta mensagem para ${lembrete} da sua consulta no dia ${elementoConsulta.data}. Por favor, acuse o recebimento deste e-mail.`
-    }
-})
+function calculaSaldoTotal(){
+    contas.forEach((elementoConta, index, array) => {
+        let totalCompras = 0
+        for(elemento of elementoConta.compras){
+            totalCompras += elemento 
+        }
+        elementoConta.saldoTotal = elementoConta.saldoTotal - totalCompras
+    });
+    return contas
+}
 
-console.log(arrayEmails)
+console.log(calculaSaldoTotal())
