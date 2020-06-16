@@ -1,0 +1,30 @@
+.smallcard-container{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid black; 
+}
+
+.smallcard-container > img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.smallcard-container p {
+   display: inline;
+}
+
+.nome-info{
+    font-weight: bold;
+}
+
+.normal{
+    font-weight: 400;
+}
+
+.smallcard-container > div {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+}
