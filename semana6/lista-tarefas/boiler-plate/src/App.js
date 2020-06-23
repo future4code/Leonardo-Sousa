@@ -25,10 +25,17 @@ class App extends React.Component {
 
   componentDidUpdate() {
 
+    localStorage.setItem("tarefa", JSON.stringify(this.state.tarefas))
   };
 
   componentDidMount() {
-
+    if(localStorage.getItem("tarefa")){
+      const tarefaString = localStorage.getItem("tarefa")
+      const tarefaObjeto = JSON.parse(tarefaString)
+      this.setState({
+        tarefas: tarefaObjeto
+      })
+    }
   };
 
   onChangeInput = (event) => {
@@ -65,8 +72,7 @@ class App extends React.Component {
   }
 
   render() {
-    const listaFiltrada = this.state.tarefas
-      .filter(tarefa => {
+    const listaFiltrada = this.state.tarefas.filter(tarefa => {
         switch (this.state.filter) {
           case 'pendentes':
             return !tarefa.completa
