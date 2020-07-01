@@ -53,7 +53,7 @@ class CadastraUsuarios extends React.Component{
   render(){
     return (
       <DivCadastro>
-          <BotaoLista onClick= {this.props.changeRenderiza}>Lista de Usuários</BotaoLista>
+          <BotaoLista onClick= {this.props.changeRenderizaListaOuCadastro}>Lista de Usuários</BotaoLista>
           <Cadastro>
             <Input 
               value= {this.props.inputNome}

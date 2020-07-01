@@ -15,15 +15,14 @@ const DivPai = styled.div`
 
 class App extends React.Component{
   state= {
-    usuarios: [
-    ],
+    usuarios: [],
     inputNome: "",
     inputEmail: "",
-    renderiza: true
+    renderizaListaOuCadastro: true,
   }
 
-  changeRendereriza = () =>{
-    this.setState({renderiza: !this.state.renderiza})
+  changeRenderizaListaOuCadastro = () =>{
+    this.setState({renderizaListaOuCadastro: !this.state.renderizaListaOuCadastro})
   }
 
   onChangeInputNome = (event) => {
@@ -96,48 +95,29 @@ class App extends React.Component{
     });
   }
 
-  
   render(){
-    const tela1 = <CadastraUsuarios
-      inputNome= {this.state.inputNome}
-      inputEmail= {this.state.inputEmail}
-      onChangeInputNome= {this.onChangeInputNome}
-      onChangeInputEmail= {this.onChangeInputEmail}
-      cadastrarUsuarios= {this.cadastrarUsuarios}
-      changeRenderiza= {this.changeRendereriza}
-    />
+    const telaCadastro = (
+      <CadastraUsuarios
+        inputNome= {this.state.inputNome}
+        inputEmail= {this.state.inputEmail}
+        onChangeInputNome= {this.onChangeInputNome}
+        onChangeInputEmail= {this.onChangeInputEmail}
+        cadastrarUsuarios= {this.cadastrarUsuarios}
+        changeRenderizaListaOuCadastro= {this.changeRenderizaListaOuCadastro}
+      />
+    )
 
-    const tela2 = <ListaUsuarios
-      usuarios= {this.state.usuarios}
-      changeRenderiza= {this.changeRendereriza}
-      removeUsuarios= {this.removeUsuarios}
-    />
-
-    // const renderizaTela = () => {
-    //   if (this.state.renderiza) {
-    //     return (
-    //       <CadastraUsuarios
-    //         inputNome= {this.state.inputNome}
-    //         inputEmail= {this.state.inputEmail}
-    //         onChangeInputNome= {this.onChangeInputNome}
-    //         onChangeInputEmail= {this.onChangeInputEmail}
-    //         cadastrarUsuarios= {this.cadastrarUsuarios}
-    //         changeRendereriza= {this.changeRendereriza}
-    //       />
-    //     );
-    //   } else {
-    //     return(
-    //       <ListaUsuarios
-    //         usuarios= {this.state.usuarios}
-    //         changeRendereriza= {this.changeRendereriza}
-    //       />
-    //     )
-    //   }
-    // }
+    const telaLista = (
+      <ListaUsuarios
+        usuarios= {this.state.usuarios}
+        changeRenderizaListaOuCadastro= {this.changeRenderizaListaOuCadastro}
+        removeUsuarios= {this.removeUsuarios}
+      />
+    )
 
     return (
       <DivPai>
-        {this.state.renderiza ? tela1 : tela2}
+        {this.state.renderizaListaOuCadastro ? telaCadastro : telaLista}
       </DivPai>
     );
   }

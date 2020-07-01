@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
+import DetalheUsuarios from './DetalheUsuario';
+import axios from 'axios'
 
 const DivLista = styled.div`
   display: flex;
@@ -40,17 +42,48 @@ const BotaoApaga = styled.span`
     background-color: red;
   }
 `
+const Usuario = styled.span`
+    cursor: pointer;
+`
 
 class ListaUsuarios extends React.Component{
+  state= {
+    renderizaListaOuDetalhe: true,
+    detalhes: []
+}
+pegarUsuariosPorId = (userId) => {
+    axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
+        {
+            headers: {
+                Authorization: "leonardo-gomes-turing"
+            }
+        }
+    )
+    .then(response => {
+        this.setState({detalhes: response.data});
+    })
+    .catch(error => {
+        console.log(error.data);
+    });
+};
+  changeRenderizaListaOuDetalhe = () =>{
+    this.setState({renderizaListaOuDetalhe: !this.state.renderizaListaOuDetalhe})
+  }
+
+  handleClick(id){
+    this.pegarUsuariosPorId(id);
+    this.changeRenderizaListaOuDetalhe();
+}
+
   render(){
-    return (
+    const telaLista = (
       <DivLista>
-        <BotaoCadastra onClick= {this.props.changeRenderiza}>Cadastro de Usuários</BotaoCadastra>
+        <BotaoCadastra onClick= {this.props.changeRenderizaListaOuCadastro}>Cadastro de Usuários</BotaoCadastra>
         <Conteudo>
           {this.props.usuarios.map(user => {
               return (
                 <div key= {user.id}>
-                  <span> {user.name} </span>
+                  <Usuario onClick= {() => this.handleClick(user.id)}> {user.name} </Usuario>
                   <BotaoApaga onClick= {() => this.props.removeUsuarios(user.id)}> X </BotaoApaga>
                   <hr/>
                 </div>
@@ -58,6 +91,19 @@ class ListaUsuarios extends React.Component{
           })}
         </Conteudo>
       </DivLista>
+    )
+
+    const telaDetalhe = (
+      <DetalheUsuarios
+        changeRenderizaListaOuDetalhe= {this.changeRenderizaListaOuDetalhe}
+        detalhes= {this.state.detalhes}
+        removeUsuarios= {this.props.removeUsuarios}
+      />
+    )
+    return (
+      <div>
+        {this.state.renderizaListaOuDetalhe ? telaLista : telaDetalhe}
+      </div>
     );
   }
 }
