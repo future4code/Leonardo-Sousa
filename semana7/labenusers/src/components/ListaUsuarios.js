@@ -16,6 +16,7 @@ const Conteudo = styled.div`
   min-height: 30vh;
   color: white;
   border: 1px solid white;
+  border-radius: 2px;
   > * {
     margin: 10px;
   }
@@ -34,7 +35,7 @@ const BotaoCadastra = styled.button`
 `
 const BotaoApaga = styled.span`
   background-color: orangered;
-  margin: 10px;
+  margin: 10px 10px 5px 30px;
   padding: 0 5px;
   border-radius: 4px;
   cursor: pointer;
@@ -43,7 +44,7 @@ const BotaoApaga = styled.span`
   }
 `
 const Usuario = styled.span`
-    cursor: pointer;
+  cursor: pointer;
 `
 
 class ListaUsuarios extends React.Component{
@@ -51,13 +52,13 @@ class ListaUsuarios extends React.Component{
     renderizaListaOuDetalhe: true,
     detalhes: []
 }
-pegarUsuariosPorId = (userId) => {
+  pegarUsuariosPorId = (userId) => {
     axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
-        {
-            headers: {
-                Authorization: "leonardo-gomes-turing"
-            }
+      {
+        headers: {
+          Authorization: "leonardo-gomes-turing"
         }
+      }
     )
     .then(response => {
         this.setState({detalhes: response.data});
@@ -65,7 +66,8 @@ pegarUsuariosPorId = (userId) => {
     .catch(error => {
         console.log(error.data);
     });
-};
+  };
+
   changeRenderizaListaOuDetalhe = () =>{
     this.setState({renderizaListaOuDetalhe: !this.state.renderizaListaOuDetalhe})
   }
@@ -73,7 +75,7 @@ pegarUsuariosPorId = (userId) => {
   handleClick(id){
     this.pegarUsuariosPorId(id);
     this.changeRenderizaListaOuDetalhe();
-}
+  }
 
   render(){
     const telaLista = (
@@ -81,13 +83,13 @@ pegarUsuariosPorId = (userId) => {
         <BotaoCadastra onClick= {this.props.changeRenderizaListaOuCadastro}>Cadastro de Usuários</BotaoCadastra>
         <Conteudo>
           {this.props.usuarios.map(user => {
-              return (
-                <div key= {user.id}>
-                  <Usuario onClick= {() => this.handleClick(user.id)}> {user.name} </Usuario>
-                  <BotaoApaga onClick= {() => this.props.removeUsuarios(user.id)}> X </BotaoApaga>
-                  <hr/>
-                </div>
-              )
+            return (
+              <div key= {user.id}>
+                <Usuario onClick= {() => this.handleClick(user.id)}> {user.name} </Usuario>
+                <BotaoApaga onClick= {() => this.props.removeUsuarios(user.id)}> X </BotaoApaga>
+                <hr/>
+              </div>
+            )
           })}
         </Conteudo>
       </DivLista>
