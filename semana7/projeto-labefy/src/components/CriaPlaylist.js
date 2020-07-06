@@ -1,5 +1,12 @@
 import React from 'react';
 import axios from 'axios'
+import styled from 'styled-components'
+
+const CriarPlaylist = styled.div`
+background-color: #2F3940;
+grid-row: 1/2;
+grid-column: 2/3;
+`
 
 class CriaPlaylist extends React.Component {
   state= {
@@ -8,10 +15,9 @@ class CriaPlaylist extends React.Component {
 
   onChangeInputPlaylistASerCriada = (event) => {
     this.setState({inputPlaylistASerCriada: event.target.value})
-    console.log(this.state.inputPlaylistASerCriada)
   }
 
-  criaPlaylist = () => {
+  createPlaylist = () => {
     const body = {
       name: this.state.inputPlaylistASerCriada,
     };
@@ -24,8 +30,9 @@ class CriaPlaylist extends React.Component {
       }
     )
     .then(response => {
-      this.props.pegarPlaylists()
+      this.props.getAllPlaylists()
       alert("Playlist criada com sucesso")
+      this.setState({inputPlaylistASerCriada: ""})
     })
     .catch(error => {
       console.log(error.data);
@@ -35,14 +42,14 @@ class CriaPlaylist extends React.Component {
 
   render(){
     return (
-      <div>
+      <CriarPlaylist>
         <input
           value= {this.state.inputPlaylistASerCriada}
           onChange= {this.onChangeInputPlaylistASerCriada}
           placeholder= "Nome da Playlist a ser criada"
         />
-        <button onClick= {this.criaPlaylist}>Criar Playlist</button>
-      </div>
+        <button onClick= {this.createPlaylist}>Criar Playlist</button>
+      </CriarPlaylist>
     )
   }
 }
