@@ -21,9 +21,9 @@ function PokeCard(props) {
 
   return (
     <div>
-      <p>{pokemon.name}</p>
-      <p>{pokemon.weight} Kg</p>
-      {pokemon.types && <p>{pokemon.types[0].type.name}</p>}
+      <p>Nome: {pokemon.name}</p>
+      <p>Peso: {pokemon.weight} Kg</p>
+      {pokemon.types && <p> Tipo: {pokemon.types[0].type.name}</p>}
       {pokemon.sprites && (
         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
       )}
