@@ -1,21 +1,8 @@
 import React from 'react';
-import styled from 'styled-components'
-
-const SelectCountry = styled.select`
-  justify-self: center;
-  margin: 20px 10px;
-  align-self: start;
-  height: 54%;
-  width: 94%;
-  border: white;
-  border-radius: 2px;
-`
 
 function SelectCountries() {
   return (
-    <SelectCountry
-      required
-    >
+    <>
       <option value="" disabled selected>-- País --</option>
       <option value="África do Sul">África do Sul</option>
       <option value="Albânia">Albânia</option>
@@ -191,7 +178,7 @@ function SelectCountries() {
       <option value="Zaire">Zaire</option>
       <option value="Zâmbia">Zâmbia</option>
       <option value="Zimbábue">Zimbábue</option>
-    </SelectCountry>
+    </>
   );
 }
 

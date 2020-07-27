@@ -15,7 +15,7 @@ const Image = styled.img`
   height: 95%;
   margin: 2.5% 5%;
 `
-const Form = styled.form`
+const Form = styled.div`
   width: 50%;
   height: 100%;
   display: grid;
@@ -40,7 +40,6 @@ const ButtonLogin = styled.button`
   height: 20%;
   border: white;
   border-radius: 2px;
-  outline: none;
   background-color: blue;
   color: #FFF;
   :hover{
@@ -84,7 +83,7 @@ function LoginPage() {
     };
 
     axios
-      .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/darvas/login`, body)
+      .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/leonardo-gomes/login`, body)
       .then(response => {
         window.localStorage.setItem("token", response.data.token);
         history.push("/ManageTripsPage");

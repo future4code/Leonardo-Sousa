@@ -17,7 +17,7 @@ const Foot = styled.div`
 function Footer() {
   return (
     <Foot>
-      Desenvolvido por @LeoGomes
+      Desenvolvido por Leo Gomes
     </Foot>
   );
 }

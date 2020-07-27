@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
 import axios from 'axios'
+import {useHistory} from 'react-router-dom'
+import Info from '@material-ui/icons/Info'
 
 const ManageTrips = styled.div`
   justify-self: center;
@@ -55,7 +57,6 @@ const ButtonSendForm = styled.button`
   justify-self: center;
   border: white;
   border-radius: 2px;
-  outline: none;
   background-color: blue;
   color: #FFF;
   :hover{
@@ -81,6 +82,7 @@ const Select = styled.select`
 const Trip = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 96%;
   height: 10%;
   margin: 2%;
@@ -96,11 +98,37 @@ const Title = styled.h2`
   width: 96%;
   margin: 2%;
 `
+const Icons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 15%;
+`
+
+const InfoIcon = styled(Info)`
+  cursor: pointer;
+`
+
+const useForm = initialValues => {
+  const [form, setForm] = useState(initialValues);
+  const onChange = (name, value) => {
+    const newForm = { ...form, [name]: value };
+    setForm(newForm);
+  };
+  return { form, onChange };
+};
 
 function ManageTripsPage() {
-  const now = new Date
-  const minDate = now.getFullYear() + "-" + now.getMonth() + "-" + now.getDate()
+  const token = window.localStorage.getItem("token");
+  const history = useHistory();
   const [allTrips, setAllTrips] = useState([]);
+  const { form, onChange } = useForm({ name: "", planet: "", date: "", description: "" , durationInDays: ""});
+
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+
+    onChange(name, value);
+  };
   
   const getAllTrips = () => {
     axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/leonardo-gomes/trips")
@@ -112,60 +140,110 @@ function ManageTripsPage() {
     })
   }
 
-  useEffect(() =>{
-    getAllTrips()
-  }, [])
+  const sendIdToDetailPage = (idTrip) => {
+    history.push(`/TripDetailsPage/${idTrip}`)
+  }
+  
+  const createTrip = (event) => {
+    event.preventDefault()
+    const body = {
+      name: form.name,
+      planet: form.planet,
+      date: form.date,
+      description: form.description,
+      durationInDays: form.durationInDays
+    }
+    axios
+      .post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/leonardo-gomes/trips`, body, {
+        headers: {
+          auth: token
+        }
+      })
+      .then(() => {
+        alert("Viagem criada com sucesso!");
+        getAllTrips()
+      })
+      .catch(() => {
+        alert("Ops, algo está errado! Confira todos os campos e tente novamente.");
+      });
+  };
+
+  useEffect(() => {
+    if (token === null) {
+      history.push("/LoginPage");
+    } else {
+      getAllTrips()
+    }
+  }, [history]);
+
   return (
     <ManageTrips>
       <ListTrips>
         <Title>Lista de viagens</Title>
-        {/* <div>{minDate}</div> */}
         {allTrips.map(trip => {
           return(
             <Trip 
               key= {trip.id} 
-              value= {trip.id}
             >
               {trip.name}
+              <Icons>
+                <InfoIcon onClick= {() => sendIdToDetailPage(trip.id)}/>
+              </Icons>
             </Trip>
           )
         })}
       </ListTrips>
-      <Form>
+      <Form onSubmit= {createTrip}>
         <InputSub
+          value={form.name}
+          name= "name"
           placeholder= "Nome"
           type= "text"
           minLength= "5"
+          onChange={handleInputChange}
           required
-        />
+        />        
         <Select
+          value={form.planet}
+          name= "planet"
+          onChange={handleInputChange}
           required
         >
-          <option>-- Planeta --</option>
-          <option>Mercúrio</option>
-          <option>Vênus</option>
-          <option>Terra</option>
-          <option>Marte</option>
-          <option>Júpter</option>
-          <option>Saturno</option>
-          <option>Urano</option>
-          <option>Neptuno</option>
+          <option value= "" disabled selected>-- Planeta --</option>
+          <option value= "Mercúrio">Mercúrio</option>
+          <option value= "Vênus">Vênus</option>
+          <option value= "Terra">Terra</option>
+          <option value= "Marte">Marte</option>
+          <option value= "Júpter">Júpter</option>
+          <option value= "Saturno">Saturno</option>
+          <option value= "Urano">Urano</option>
+          <option value= "Neptuno">Neptuno</option>
         </Select>
         <InputSub
+          value={form.date}
+          name= "date"
           placeholder= "Data"
           type="date"
-          min={minDate}
+          min="2020-07-25"
+          onChange={handleInputChange}
           required
         />
         <InputSub
+          value={form.durationInDays}
+          name= "durationInDays"
           placeholder= "Duração em dias"
           type= "number"
           min="50"
+          onChange={handleInputChange}
           required
         />
         <LabelTextArea>Descrição:</LabelTextArea>
         <TextArea
-          minLength= "30"
+          value={form.description}
+          name= "description"
+          type= "number"
+          min="30"
+          onChange={handleInputChange}
           required
         />
         <ButtonSendForm>Criar Viagem</ButtonSendForm>

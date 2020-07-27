@@ -32,8 +32,10 @@ function Router() {
           <ManageTripsPage/>
           <Footer/>
         </Route>
-        <Route exact path="/TripDetailPage">
+        <Route exact path="/TripDetailsPage/:idTrip">
+          <Header/>
           <TripDetailsPage/>
+          <Footer/>
         </Route>
         <Route path="/">
           <h1>Página não encontrada...</h1>
