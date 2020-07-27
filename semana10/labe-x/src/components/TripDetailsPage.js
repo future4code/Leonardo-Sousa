@@ -34,7 +34,7 @@ const CandidatesList = styled.div`
 const Candidate = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 96%;
   height: 10%;
   margin: 2%;
@@ -43,6 +43,13 @@ const Candidate = styled.div`
   :hover{
     background-color: #03141C;
   }
+`
+const Approve = styled.span`
+  color: green;
+  margin-right: 10px;
+`
+const Reprove = styled.span`
+  color: red;
 `
 const Details = styled.div`
   display: flex;
@@ -56,14 +63,15 @@ const Details = styled.div`
   border-radius: 2px;
   > * {
     width: 100%;
-    
   }
 `
 
 function TripDetailsPage() {
   const token = window.localStorage.getItem("token");
   const [detailTrip, setDetailTrip] = useState([]);
+  const [idTravel, setIdTravel] = useState("");
   const params = useParams();
+  const history = useHistory();
 
   const getTripDetail = (idTrip) => {
     axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/leonardo-gomes/trip/${idTrip}`,{
@@ -73,6 +81,25 @@ function TripDetailsPage() {
     })
     .then(response =>{
       setDetailTrip(response.data.trip)
+      setIdTravel(idTrip)
+    })
+    .catch(err =>{
+      console.log(err.message)
+    })
+  }
+
+  const decideCandidate = (idCandidate, choice) => {
+    const body ={
+      approve: choice
+    }
+    axios.put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/leonardo-gomes/trips/${params.idTrip}/candidates/${idCandidate}/decide`, body,{
+      headers: {
+        auth: token
+      }
+    })
+    .then(() =>{
+      alert(choice ? "Candidato aceito!" : "Candidato recusado!")
+      getTripDetail(idTravel)
     })
     .catch(err =>{
       console.log(err.message)
@@ -80,9 +107,13 @@ function TripDetailsPage() {
   }
 
   useEffect(() => {
-    getTripDetail(params.idTrip)
-  }, []);
-  
+    if (token === null) {
+      history.push("/LoginPage");
+    } else {
+      getTripDetail(params.idTrip)
+    }
+  }, [history]);
+
   return (
     <DetailsTrip>
       <Details>
@@ -98,7 +129,11 @@ function TripDetailsPage() {
         {detailTrip.candidates && detailTrip.candidates.map(candidate => {
           return (
             <Candidate>
-              {candidate.name}
+              {candidate.name} 
+              <div>
+                <Approve onClick={() => decideCandidate(candidate.id, true)}>Aprovar</Approve>
+                <Reprove onClick={() => decideCandidate(candidate.id, false)}>Reprovar</Reprove>
+              </div>
             </Candidate>
           )
         })}
