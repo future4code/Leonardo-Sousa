@@ -5,6 +5,7 @@ import { Post } from "./components/Post";
 const App = () => {
   const [postsList, setPostsList] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [inputVazio, setIputVazio] = useState(false);
 
   const onChangeInput = event => {
     setInputValue(event.target.value);
@@ -18,9 +19,14 @@ const App = () => {
       liked: false
     };
 
-    const newPostsList = [newPost, ...postsList];
-
-    setPostsList(newPostsList);
+    if(inputValue === ""){ 
+      setIputVazio(true)
+    } else {
+      const newPostsList = [newPost, ...postsList];
+      setPostsList(newPostsList);
+      setInputValue("")
+      setIputVazio(false)
+    }
   };
 
   const deletePost = postId => {
@@ -59,9 +65,11 @@ const App = () => {
           placeholder={"Novo post"}
         />
         <button onClick={addPost}>Adicionar</button>
+        {inputVazio ? <div>O post não pode ser criado. Preencha todos os campos!</div> : ""}
+        {postsList.length !== 0 ? <div>Quantidade de Posts: {postsList.length}</div> : ""}
       </div>
       <br />
-      {postsList.map(post => {
+      {postsList.length !== 0 ? postsList.map(post => {
         return (
           <Post
             key={post.id}
@@ -69,8 +77,8 @@ const App = () => {
             toggleLike={toggleLike}
             deletePost={deletePost}
           />
-        );
-      })}
+        )
+      }) : <div>Nenhum Post</div>}
     </div>
   );
 };

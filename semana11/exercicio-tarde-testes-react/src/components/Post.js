@@ -2,7 +2,7 @@ import React from "react";
 
 export const Post = props => {
   return (
-    <div className={"post-container"}>
+    <div className={"post-container"} data-testid="empty">
       <p>{props.post.text}</p>
       <button
         onClick={() => props.toggleLike(props.post.id)}
