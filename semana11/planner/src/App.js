@@ -1,14 +1,75 @@
 import React, {useState, useEffect} from 'react';
-import styled from 'styled-components'
 import axios from 'axios'
+import {Planner, Menu, Title, FormCreateTask, ButtonCreateTask, InputCreateTask, AllTasksContainer,
+       TaskDay, Task, Delete, FooterPlanner, TextTask} from './style'
+
+const baseUrl = `https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-turing-leonardo-gomes`
+
+const useForm = initialValues => {
+  const [form, setForm] = useState(initialValues);
+  const onChange = (name, value) => {
+    const newForm = { ...form, [name]: value };
+    setForm(newForm);
+  };
+  const cleanForm = (name, value) => {
+    setForm(initialValues);
+  };
+  return {form, onChange, cleanForm};
+};
 
 function App() {
   const [tasks, setTasks] = useState([])
+  const {form, onChange, cleanForm} = useForm({ tarefa: "", day: ""});
+
+  const handleInputChange = event => {
+    const {name, value} = event.target;
+
+    onChange(name, value);
+  };
 
   const getTasks = () => {
-    axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-turing-leonardo-gomes`)
+    axios.get(baseUrl)
     .then(response => {
       setTasks(response.data)
+    })
+    .catch((err) => {
+      console.log(err.message)
+    })
+  }
+
+  const createTask = (event) => {
+    event.preventDefault()
+    const body = {
+      text: form.tarefa,
+      day: form.day,
+      completed: false
+    }
+    axios.post(baseUrl, body)
+    .then(() => {
+      getTasks()
+      cleanForm()
+    })
+    .catch((err) => {
+      console.log(err.message)
+    })
+  }
+
+  const deleteTask = (taskId) => {
+    axios.delete(`${baseUrl}/${taskId}`)
+    .then(() => {
+      alert("Deletado com sucesso!")
+      getTasks()
+    })
+    .catch((err) => {
+      console.log(err.message)
+    })
+  }
+
+  const editTask = (task) => {
+    axios.put(`${baseUrl}/${task.id}`)
+    .then(() => {
+      task.completed = !(task.completed)
+      console.log(task.completed)
     })
     .catch((err) => {
       console.log(err.message)
@@ -20,71 +81,111 @@ function App() {
   })
 
   return (
-    <div>
-      <header>
-        <div>
+    <Planner>
+      <Menu>
+        <Title>
           Minha Semana 
-        </div>  
-        <form>
-          <label for="tarefa">Nova tarefa: </label>
-          <input type="text" name="tarefa" value=""/>  
-          <select name="diaDaSemana" id="diaDaSemana">
-            <option value="segunda">Segunda-Feira</option>
-            <option value="terca">Terça-Feira</option>
-            <option value="quarta">Quarta-Feira</option>
-            <option value="quinta">Quinta-Feira</option>
-            <option value="sexta">Sexta-Feira</option>
-            <option value="sabado">Sábado</option>
-            <option value="domingo">Domingo</option>
+        </Title>  
+        <FormCreateTask onSubmit={createTask}> 
+          <label>Nova tarefa:
+            <InputCreateTask
+              value={form.tarefa}
+              name= "tarefa"
+              placeholder= "Tarefa"
+              type="text"
+              minLength="5"
+              onChange={handleInputChange}
+              required
+            />  
+           </label>
+          <select
+             value= {form.day}
+             name= "day"
+             onChange= {handleInputChange}
+             data-testid={'select'}
+             required
+          >
+            <option value="" disabled>--Dia da Semana--</option>
+            <option value="Segunda">Segunda-Feira</option>
+            <option value="Terca">Terça-Feira</option>
+            <option value="Quarta">Quarta-Feira</option>
+            <option value="Quinta">Quinta-Feira</option>
+            <option value="Sexta">Sexta-Feira</option>
+            <option value="Sabado">Sábado</option>
+            <option value="Domingo">Domingo</option>
           </select>
-          <button onclick="adicionaTarefa()">CRIAR TAREFA</button>
-        </form> 
-      </header>
-      <main>
+          <ButtonCreateTask>CRIAR TAREFA</ButtonCreateTask>
+        </FormCreateTask> 
+      </Menu>
+      <AllTasksContainer>
         <div>
-          --Segunda
-          <div id="segunda"></div>
+          <TaskDay>-Segunda</TaskDay>
           {tasks.map(task => {
-            return(
-              <div>=============================={task.text}</div>
-            )})}
-          -----@@-----
+            return task.day === "Segunda" ? <Task key={task.id}>
+              <TextTask onClick={() => editTask(task)} completa={task.completed}> {task.text}</TextTask>
+              <Delete onClick={() => deleteTask(task.id)}/>
+            </Task> : ""
+          })}
         </div>
         <div>
-          --Terça
-          <div id="terca"></div>
-          -----@@-----
+          <TaskDay>-Terça</TaskDay>
+          {tasks.map(task => {
+            return task.day === "Terca" ? <Task key={task.id}>
+              <TextTask onClick={() => editTask(task)} completa={task.completed}> {task.text}</TextTask>
+              <Delete onClick={() => deleteTask(task.id)}/>
+            </Task> : ""
+          })}
         </div>
         <div>
-          --Quarta
-          <div id="quarta"></div>
-          -----@@-----
+          <TaskDay>-Quarta-</TaskDay>
+          {tasks.map(task => {
+            return task.day === "Quarta" ? <Task key={task.id}>
+              <TextTask onClick={() => editTask(task)} completa={task.completed}> {task.text}</TextTask>
+              <Delete onClick={() => deleteTask(task.id)}/>
+            </Task> : ""
+          })}
         </div>
         <div >
-          --Quinta
-          <div id="quinta"></div>
-          -----@@-----
+          <TaskDay>-Quinta-</TaskDay>
+          {tasks.map(task => {
+            return task.day === "Quinta" ? <Task key={task.id}>
+              <TextTask onClick={() => editTask(task)} completa={task.completed}> {task.text}</TextTask>
+              <Delete onClick={() => deleteTask(task.id)}/>
+            </Task> : ""
+          })}
         </div>
         <div>
-          --Sexta
-          <div id="sexta"></div>
-          -----@@-----
+          <TaskDay>-Sexta-</TaskDay>
+          {tasks.map(task => {
+            return task.day === "Sexta" ? <Task key={task.id}>
+              <TextTask onClick={() => editTask(task)} completa={task.completed}> {task.text}</TextTask>
+              <Delete onClick={() => deleteTask(task.id)}/>
+            </Task> : ""
+          })}
         </div>
         <div>
-          --Sábado
-          <div id="sabado"></div>
-          -----@@-----
+          <TaskDay>-Sábado-</TaskDay>
+          {tasks.map(task => {
+            return task.day === "Sabado" ? <Task key={task.id}>
+              <TextTask onClick={() => editTask(task)} completa={task.completed}> {task.text}</TextTask>
+              <Delete onClick={() => deleteTask(task.id)}/>
+            </Task> : ""
+          })}
         </div>
         <div>
-          --Domingo
-          <div id="domingo"></div>
-          -----@@-----
+          <TaskDay>-Domingo-</TaskDay>
+          {tasks.map(task => {
+            return task.day === "Domingo" ? <Task key={task.id}>
+              <TextTask onClick={() => editTask(task)} completa={task.completed}> {task.text}</TextTask>
+              <Delete onClick={() => deleteTask(task.id)}/>
+            </Task> : ""
+          })}
         </div>
-      </main>
-      <footer>
-        <span> Planner do Leo</span> --///-- <span>© 2020 Todos os direitos reservados </span>
-      </footer>
-    </div>
+      </AllTasksContainer>
+      <FooterPlanner>
+        <span>© 2020 Todos os direitos reservados - Desenvolvido por Leo Gomes</span>
+      </FooterPlanner>
+    </Planner>
   );
 }
 
