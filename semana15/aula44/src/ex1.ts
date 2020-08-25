@@ -2,9 +2,8 @@
 // não pode ser atribuído a uma variável do tipo string.
 const minhaString: string = "Bananinha"
 
-// b) ↓ Quando atribuído uma string aparece um erro dizendo que a string
-// não pode ser atribuído a uma variável do tipo number.
-const meuNumero: number = 8
+// b) ↓ Atribuindo dois tipos a ela.
+const meuNumero: number | string = 2
 
 // c) ↓
 const person = {
