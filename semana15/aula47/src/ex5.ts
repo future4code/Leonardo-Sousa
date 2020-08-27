@@ -1,12 +1,18 @@
-// a) A diferença é que na função nomeada o "async" é posto no começo da função,
-// na arrow function, não.
+// a) 
 
 // b) ↓↓↓
 import axios from 'axios'
 
 const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labenews"
 
-const getAllSubscribers = async() : Promise<any[]> => {
+type User = {
+	id: string;
+	name: string;
+	email: string;
+}
+
+
+const getAllSubscribers = async() : Promise<User[]> => {
   const users = await axios.get(`${baseUrl}/subscribers/all`);
   return users.data.map((subscriber: any) => {
     return {
@@ -17,10 +23,24 @@ const getAllSubscribers = async() : Promise<any[]> => {
   })
 };
 
+const sendNotifications = async(user: User[], message: string) : Promise<void> => {
+  
+  for (const us of user) {
+    await axios.post(`${baseUrl}/notifications/send`, {
+      subscriberId: us.id,
+      message: message,
+    });
+    console.log('Notificação enviada para: ', us.name);
+  }
+}
+
 const main = async () => {
   try {
+
     const users = await getAllSubscribers();
-    console.log(users)  
+
+    await sendNotifications(users, "777---777---777---777")
+    
   } catch (e) {
     console.log(e.response.data)
   }
